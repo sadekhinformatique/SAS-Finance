@@ -1,0 +1,5 @@
+{
+  "name": "SAS Finance",
+  "description": "Application de gestion financière pour l'association SAS Étudiant, permettant le suivi des transactions, la gestion des membres et l'approbation des dépenses.",
+  "requestFramePermissions": []
+}
