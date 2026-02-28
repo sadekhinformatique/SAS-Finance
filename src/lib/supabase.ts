@@ -5,11 +5,14 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Only initialize if we have a URL, otherwise provide a dummy client or handle it gracefully
+export const supabase = supabaseUrl 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null as any;
 
 /**
  * Helper to check if Supabase is properly configured
  */
 export const isSupabaseConfigured = () => {
-  return supabaseUrl.length > 0 && supabaseAnonKey.length > 0;
+  return !!supabaseUrl && !!supabaseAnonKey && !!supabase;
 };

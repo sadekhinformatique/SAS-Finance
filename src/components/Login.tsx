@@ -14,6 +14,12 @@ export const Login: React.FC<{ onLogin: (user: any) => void }> = ({ onLogin }) =
     setLoading(true);
     setError(null);
 
+    if (!supabase) {
+      setError("La base de données n'est pas configurée. Veuillez ajouter les clés API dans les Secrets.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data, error: authError } = await supabase.auth.signInWithPassword({
         email,
