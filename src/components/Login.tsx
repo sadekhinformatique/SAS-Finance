@@ -114,6 +114,29 @@ export const Login: React.FC<{ onLogin: (user: any) => void }> = ({ onLogin }) =
             </>
           )}
         </button>
+
+        <div className="relative my-2">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-slate-200 dark:border-slate-800"></div>
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background-light dark:bg-background-dark px-2 text-slate-500">Ou</span>
+          </div>
+        </div>
+
+        <button 
+          type="button"
+          onClick={() => onLogin({ 
+            id: 'demo-user', 
+            email: 'demo@sas.fr', 
+            user_metadata: { role: 'admin', full_name: 'Admin Démo' },
+            app_metadata: { role: 'admin' }
+          })}
+          className="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold py-4 rounded-xl transition-all flex items-center justify-center gap-2 active:scale-[0.98] border border-slate-200 dark:border-slate-700"
+        >
+          <Fingerprint size={20} />
+          <span>Accéder au Mode Démo</span>
+        </button>
       </form>
 
       <div className="mt-auto pb-10 px-6 text-center">
